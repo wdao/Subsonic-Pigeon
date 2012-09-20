@@ -61,7 +61,7 @@ void AddQueue (string message, string cellnum)
 	char *c_cat = c_str(add); //convert add to c-string char array
 	
 	struct incoming_packet *add;
-	add = new incoming_packet;
+	//add = new incoming_packet;
 	packet *msg = new packet;
 	msg->data_ = c_cat;
 	msg->body_length_ = sizeof(c_cat);
@@ -69,13 +69,15 @@ void AddQueue (string message, string cellnum)
 	if (msg->body_length_ > 515) msg->done = 1;
 	else msg->done = 0;
 	
-	add->msg = msg;
+	//add->msg = msg;
 	//add->cli	//don't really know what this is
 	
 	//int size = sizeof(add);
 	
-	incoming_queue_msgs.push_back(add);
+	//incoming_queue_msgs.push_back(add);
 	
+	client_ptr cli //not sure what this does
+	send_packet(cli, msg);
 	
 
 }
